@@ -4,30 +4,30 @@
 @theme {
     --font-site: "Inter", sans-serif;
     --font-quote: "Playfair Display", serif;
-    --color-bg-dark: oklch(10% 0 0);
-    --color-bg: oklch(13% 0 0);
-    --color-bg-light: oklch(18% 0 0);
+    --color-bg-dark: oklch(5% 0 0);
+    --color-bg: oklch(15% 0 0);
+    --color-bg-light: oklch(25% 0 0);
 
     --color-text-light: oklch(92% 0 0);
-    --color-text-dark: oklch(72% 0 0);
+    --color-text-dark: oklch(78% 0 0);
 
     --shadow-sm:
-        inset 0 1px 2px oklch(90% 0 0 / 0.5),
-        0 1px 2px oklch(10% 0 0 / 0.6),
-        0 3px 6px oklch(10% 0 0 / 0.3);
-    --shadow-md: inset 0 2px 3px oklch(95% 0 0 / 0.4), 0 4px 8px oklch(10% 0 0 / 0.55), 0 8px 16px oklch(10% 0 0 / 0.3);
-    --shadow-lg: inset 0 4px 8px oklch(95% 0 0 / 0.35),
-        0 8px 16px oklch(10% 0 0 / 0.5),
-        0 16px 32px oklch(10% 0 0 / 0.25);
+        inset 0 1px 2px oklch(100% 0 0 / 0.3),
+        0 1px 2px oklch(0% 0 0 / 0.4),
+        0 2px 4px oklch(0% 0 0 / 0.2);
+    --shadow-md: inset 0 1px 2px oklch(100% 0 0 / 0.5), 0 2px 4px oklch(0% 0 0 / 0.4), 0 4px 6px oklch(0% 0 0 / 0.2);
+    --shadow-lg: inset 0 1px 2px oklch(100% 0 0 / 0.7),
+        0 4px 6px oklch(0% 0 0 / 0.4),
+        0 6px 8px oklch(0% 0 0 / 0.2);
 }
 
 .light {
 
-    --color-bg-dark: oklch(95% 0 0);
-    --color-bg: oklch(90% 0 0);
-    --color-bg-light: oklch(85% 0 0);
+    --color-bg-dark: oklch(80% 0 0);
+    --color-bg: oklch(95% 0 0);
+    --color-bg-light: oklch(100% 0 0);
 
-    --color-text-light: oklch(18% 0 0);
-    --color-text-dark: oklch(32% 0 0);
+    --color-text-light: oklch(8% 0 0);
+    --color-text-dark: oklch(35% 0 0);
 
 }
