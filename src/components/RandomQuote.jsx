@@ -3,13 +3,20 @@ import { Dices, Copy, Check, X } from "lucide-react";
 import Button from "./Button";
 import XIcon from "../assets/XIcon";
 function RandomQuote() {
-  const [quote, setQuote] = useState("");
+  const [quote, setQuote] = useState(null);
   const [isloading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     getRandomQuote();
   }, []);
 
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
   async function getRandomQuote() {
     try {
       setLoading(true);
@@ -31,16 +38,12 @@ function RandomQuote() {
       console.error(err);
     }
   }
-  function PostInX() {
-    const postContent = `"${quote.quote}" - ${quote.author}`;
+  function PostOnX() {
+    const postContent = `"${quote?.quote}" - ${quote?.author}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      postContent
+      postContent,
     )}`;
-    return (
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <XIcon className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:fill-white" />
-      </a>
-    );
+    window.open(url, "_blank", "noopener,noreferrer");
   }
   return (
     <article
@@ -71,7 +74,7 @@ function RandomQuote() {
         aria="copy the quote"
       >
         <Copy
-          className={`h-4 w-4 md:h-6 md:w-6 transition-opacit duration-300 ${
+          className={`h-4 w-4 md:h-6 md:w-6 transition-opacity duration-300 ${
             copied ? "opacity-0" : "opacity-100"
           }`}
         />
@@ -85,8 +88,9 @@ function RandomQuote() {
         disabled={isloading}
         className="transition-transform duration-300 hover:scale-95 group"
         aria="post the quote in X"
+        onClick={PostOnX}
       >
-        <PostInX />
+        <XIcon className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:fill-white" />
       </Button>
     </article>
   );
