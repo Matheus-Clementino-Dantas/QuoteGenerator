@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Dices, Copy, Check, X } from "lucide-react";
 import Button from "./Button";
 import XIcon from "../assets/XIcon";
+import QuoteCard from "./QuoteCard";
 function RandomQuote() {
   const [quote, setQuote] = useState(null);
   const [isloading, setLoading] = useState(false);
@@ -13,7 +14,7 @@ function RandomQuote() {
 
   useEffect(() => {
     if (copied) {
-      const timer = setTimeout(() => setCopied(false), 1500);
+      const timer = setTimeout(() => setCopied(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [copied]);
@@ -25,7 +26,6 @@ function RandomQuote() {
       const data = await response.json();
       setQuote(data);
       setLoading(false);
-      setCopied(false);
     } catch (err) {
       console.error(err);
     }
@@ -46,19 +46,11 @@ function RandomQuote() {
     window.open(url, "_blank", "noopener,noreferrer");
   }
   return (
-    <article
-      className={`shadow-sm min-w-60 w-[50dvw] max-w-2xl bg-bg rounded-lg py-4 px-6 ${
-        isloading ? "animate-pulse" : ""
-      }`}
+    <QuoteCard
+      className="min-w-60 w-[50dvw] max-w-2xl"
+      quote={quote}
+      isloading={isloading}
     >
-      <figure className="space-y-1 sm:space-y-2.5">
-        <blockquote className="text-text-light font-quote text-lg md:text-2xl lg:text-3xl">
-          "{quote?.quote}"
-        </blockquote>
-        <figcaption className="text-end font-semibold font-site text-text-dark text-sm md:text-xl lg:text-2xl">
-          - {quote?.author}
-        </figcaption>
-      </figure>
       <Button
         disabled={isloading}
         className="transition-transform duration-300 hover:scale-95 group"
@@ -92,7 +84,7 @@ function RandomQuote() {
       >
         <XIcon className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:fill-white" />
       </Button>
-    </article>
+    </QuoteCard>
   );
 }
 export default RandomQuote;
