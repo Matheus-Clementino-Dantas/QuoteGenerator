@@ -20,6 +20,13 @@ function RandomQuote() {
       return () => clearTimeout(timer);
     }
   }, [copied]);
+  useEffect(() => {
+    if (!quote) return;
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const alreadyExists = favorites.some((fav) => fav?.id === quote?.id);
+    if (alreadyExists) return setFavorite(true);
+    return setFavorite(false);
+  }, [quote]);
   async function getRandomQuote() {
     try {
       setLoading(true);
@@ -29,7 +36,6 @@ function RandomQuote() {
       setQuote(data);
       setLoading(false);
       setHistory((prevhistory) => [...prevhistory, data]);
-      alreadyFavorite();
     } catch (err) {
       console.error(err);
     } finally {
@@ -60,16 +66,14 @@ function RandomQuote() {
     setQuote(previous);
     setHistory(newHistory);
   }
-  function alreadyFavorite() {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const alreadyExists = favorites.some((fav) => fav?.id === quote?.id);
-    if (alreadyExists) return setFavorite(true);
-    return setFavorite(false);
-  }
   function saveFavorite() {
     if (!quote) return;
     const getFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (favorite) return;
+    if (favorite) {
+      const filtered = getFavorites.filter((fav) => fav.id !== quote.id);
+      localStorage.setItem("favorites", JSON.stringify(filtered));
+      return setFavorite(false);
+    }
     const newFavorites = [...getFavorites, quote];
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
 
