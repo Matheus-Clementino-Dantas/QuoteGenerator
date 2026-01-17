@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Dices, Copy, Check, Undo, Bookmark } from "lucide-react";
+import { Dices, Undo, Bookmark } from "lucide-react";
 import Button from "./Button";
 import XIcon from "../assets/XIcon";
 import QuoteCard from "./QuoteCard";
+import CopyButton from "./CopyButton";
 function RandomQuote() {
   const [quote, setQuote] = useState(null);
   const [isloading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [history, setHistory] = useState([]);
   const [favorite, setFavorite] = useState(false);
 
@@ -14,12 +14,6 @@ function RandomQuote() {
     getRandomQuote();
   }, []);
 
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => setCopied(false), 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [copied]);
   useEffect(() => {
     if (!quote) return;
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -40,14 +34,6 @@ function RandomQuote() {
       console.error(err);
     } finally {
       setLoading(false);
-    }
-  }
-  async function copyQuote() {
-    try {
-      await navigator.clipboard.writeText(`"${quote.quote}" - ${quote.author}`);
-      setCopied(true);
-    } catch (err) {
-      console.error(err);
     }
   }
   function postOnX() {
@@ -93,23 +79,7 @@ function RandomQuote() {
       >
         <Dices className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:rotate-360" />
       </Button>
-      <Button
-        disabled={isloading}
-        className="transition-transform duration-300 hover:scale-95 group relative"
-        onClick={copyQuote}
-        aria="copy the quote"
-      >
-        <Copy
-          className={`h-4 w-4 md:h-6 md:w-6 transition-opacity duration-300 ${
-            copied ? "opacity-0" : "opacity-100"
-          }`}
-        />
-        <Check
-          className={`h-4 w-4 md:h-6 md:w-6 transition-opacity duration-300 ${
-            copied ? "opacity-100" : "opacity-0"
-          } absolute top-1/2 left-1/2 -translate-1/2`}
-        />
-      </Button>
+      <CopyButton quote={quote} isloading={isloading} />
       <Button
         disabled={isloading}
         className="transition-transform duration-300 hover:scale-95 group"
