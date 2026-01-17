@@ -1,7 +1,7 @@
 function QuoteCard({ isloading, className, quote, children }) {
   return (
     <article
-      className={`shadow-sm bg-bg rounded-lg py-4 px-6 ${
+      className={`shadow-sm bg-bg rounded-lg py-4 px-4 sm:px-6 ${
         isloading ? "animate-pulse" : ""
       } ${className}`}
     >
