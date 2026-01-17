@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Dices, Undo, Bookmark } from "lucide-react";
 import Button from "./Button";
-import XIcon from "../assets/XIcon";
 import QuoteCard from "./QuoteCard";
 import CopyButton from "./CopyButton";
+import ShareOnXButton from "./ShareOnXButton";
 function RandomQuote() {
   const [quote, setQuote] = useState(null);
   const [isloading, setLoading] = useState(false);
@@ -36,13 +36,7 @@ function RandomQuote() {
       setLoading(false);
     }
   }
-  function postOnX() {
-    const postContent = `"${quote?.quote}" - ${quote?.author}`;
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      postContent,
-    )}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
+
   function previousQuote() {
     if (history.length <= 1) return;
 
@@ -80,14 +74,7 @@ function RandomQuote() {
         <Dices className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:rotate-360" />
       </Button>
       <CopyButton quote={quote} isloading={isloading} />
-      <Button
-        disabled={isloading}
-        className="transition-transform duration-300 hover:scale-95 group"
-        aria="post the quote in X"
-        onClick={postOnX}
-      >
-        <XIcon className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:fill-white" />
-      </Button>
+      <ShareOnXButton quote={quote} isloading={isloading} />
       <Button
         disabled={isloading || history.length <= 1}
         className="transition-transform duration-300 hover:scale-95 group"
