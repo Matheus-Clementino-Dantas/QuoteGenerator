@@ -1,9 +1,10 @@
-function QuoteCard({ isloading, className, quote, children }) {
+function QuoteCard({ isloading, className, quote, children, id }) {
   return (
     <article
       className={`shadow-sm bg-bg rounded-lg py-4 px-4 sm:px-6 ${
         isloading ? "animate-pulse" : ""
       } ${className}`}
+      id={id}
     >
       <figure className="space-y-1 sm:space-y-2.5">
         <blockquote className="text-text-light font-quote text-lg md:text-2xl lg:text-3xl">
