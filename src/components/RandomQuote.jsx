@@ -1,26 +1,19 @@
 import { useEffect, useState } from "react";
-import { Dices, Undo, Bookmark } from "lucide-react";
+import { Dices, Undo } from "lucide-react";
 import Button from "./Button";
 import QuoteCard from "./QuoteCard";
 import CopyButton from "./CopyButton";
 import ShareOnXButton from "./ShareOnXButton";
+import FavoritesButton from "./FavoritesButton";
 function RandomQuote() {
   const [quote, setQuote] = useState(null);
   const [isloading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
-  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     getRandomQuote();
   }, []);
 
-  useEffect(() => {
-    if (!quote) return;
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const alreadyExists = favorites.some((fav) => fav?.id === quote?.id);
-    if (alreadyExists) return setFavorite(true);
-    return setFavorite(false);
-  }, [quote]);
   async function getRandomQuote() {
     try {
       setLoading(true);
@@ -46,19 +39,7 @@ function RandomQuote() {
     setQuote(previous);
     setHistory(newHistory);
   }
-  function saveFavorite() {
-    if (!quote) return;
-    const getFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (favorite) {
-      const filtered = getFavorites.filter((fav) => fav.id !== quote.id);
-      localStorage.setItem("favorites", JSON.stringify(filtered));
-      return setFavorite(false);
-    }
-    const newFavorites = [...getFavorites, quote];
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));
 
-    setFavorite(true);
-  }
   return (
     <QuoteCard
       className="min-w-60 w-[50dvw] max-w-2xl"
@@ -75,6 +56,7 @@ function RandomQuote() {
       </Button>
       <CopyButton quote={quote} isloading={isloading} />
       <ShareOnXButton quote={quote} isloading={isloading} />
+      <FavoritesButton quote={quote} isloading={isloading} key={quote?.id} />
       <Button
         disabled={isloading || history.length <= 1}
         className="transition-transform duration-300 hover:scale-95 group"
@@ -82,16 +64,6 @@ function RandomQuote() {
         onClick={previousQuote}
       >
         <Undo className="h-4 w-4 md:h-6 md:w-6 transition-transform duration-300 group-active:-rotate-z-180" />
-      </Button>
-      <Button
-        disabled={isloading}
-        className="transition-transform duration-300 hover:scale-95 group"
-        aria="add to favorites"
-        onClick={saveFavorite}
-      >
-        <Bookmark
-          className={`h-4 w-4 md:h-6 md:w-6 transition-colors duration-300 ${favorite ? "stroke-amber-300 fill-amber-300" : ""}`}
-        />
       </Button>
     </QuoteCard>
   );
