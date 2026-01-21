@@ -12,7 +12,7 @@ function HeroSection() {
         <div className="flex items-center justify-center gap-2 w-full">
           <a
             href="#RandomQuote"
-            className="p-2.5 bg-bg-light/90 text-white rounded-md font-semibold font-site shadow-sm text-lg transition-transform duration-300 leading-none sm:text-xl sm:p-3 hover:scale-95"
+            className="p-2.5 bg-bg-light/90 text-text-light rounded-md font-semibold font-site shadow-sm text-lg transition-transform duration-300 leading-none sm:text-xl sm:p-3 hover:scale-95"
           >
             Random Quote
           </a>

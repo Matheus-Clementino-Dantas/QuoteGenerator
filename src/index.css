@@ -21,13 +21,56 @@
         0 6px 8px oklch(0% 0 0 / 0.2);
 }
 
+@layer components {
+    .bento-grid {
+        @apply grid gap-4;
+        grid-template-areas:
+            "hero top top"
+            "hero center bottom";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .bento-hero {
+        grid-area: hero;
+    }
+
+    .bento-top {
+        grid-area: top;
+    }
+
+    .bento-bottom {
+        grid-area: bottom;
+    }
+
+    .bento-center {
+        grid-area: center;
+    }
+
+    .bento-card {
+        @apply bg-bg rounded-lg shadow-sm p-2;
+    }
+
+    .bento-container-icon {
+        @apply p-3 bg-bg-light rounded-lg w-max shadow-sm
+    }
+
+    .bento-icon {
+        @apply h-6 w-6 text-text-light md:h-8 md:w-8
+    }
+}
+
 .light {
 
-    --color-bg-dark: oklch(80% 0 0);
-    --color-bg: oklch(95% 0 0);
-    --color-bg-light: oklch(100% 0 0);
+    --color-bg-dark: oklch(95% 0 0);
+    --color-bg: oklch(87% 0 0);
+    --color-bg-light: oklch(85% 0 0);
 
     --color-text-light: oklch(8% 0 0);
     --color-text-dark: oklch(35% 0 0);
 
+}
+
+html {
+    scroll-behavior: smooth;
 }
