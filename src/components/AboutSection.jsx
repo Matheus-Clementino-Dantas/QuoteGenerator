@@ -1,18 +1,20 @@
 import { UserStar, Flame } from "lucide-react";
 import aristotle from "../assets/Aristotle.png";
+import albert from "../assets/albert_Einstein.jpg";
+import nietzsche from "../assets/Nietzsche.webp";
 
 function AboutSection() {
   return (
     <section className="w-screen max-w-5xl flex justify-center h-screen p-2">
-      <div className="bento-grid w-full h-[clamp(20rem,70vh,40rem)]">
-        <article className="bento-hero bento-card flex flex-col justify-between p-4 lg:p-6 relative transition-transform duration-300 hover:scale-95">
+      <div className="bento-grid w-full h-[clamp(35rem,90vh,40rem)]">
+        <article className="bento-hero bento-card flex flex-col justify-between relative overflow-hidden">
           <div className="z-10 bento-container-icon">
             <UserStar className="bento-icon" />
           </div>
           <img
             src={aristotle}
             alt="Aristotle"
-            className="absolute opacity-50 inset-0 h-2/3 w-auto z-0 object-cover object-top"
+            className="absolute top-0 left-3/4 -translate-x-1/2 h-3/4 sm:h-2/3 w-auto z-0 opacity-70 sm:left-1/2 object-cover"
             style={{
               maskImage:
                 "radial-gradient(circle at center, black 40%, transparent 70%)",
@@ -31,7 +33,7 @@ function AboutSection() {
             </p>
           </div>
         </article>
-        <article className="bento-top bento-card transition-transform duration-300 hover:scale-95 p-4 lg:p-6 space-y-2">
+        <article className="bento-top bento-card space-y-2">
           <div className="flex items-center gap-4">
             <div className="bento-container-icon ">
               <Flame className="bento-icon" />
@@ -40,12 +42,12 @@ function AboutSection() {
               Endless Voices, Timeless Words
             </h3>
           </div>
-          <p className="text-text-dark font-site text-base md:text-lg lg:text-2xl leading-relaxed">
+          <p className="text-text-dark font-site text-base sm:text-lg lg:text-2xl leading-relaxed">
             Each click brings something new — an ever-flowing stream of ideas.
           </p>
-          <dl className="flex justify-around w-full items-center h-1/2">
+          <dl className="flex justify-around w-full items-start sm:items-center h-1/2">
             <div className="flex flex-col justify-center items-center">
-              <dd className="text-xl md:text-4xl font-semibold font-site text-text-light">
+              <dd className="text-xl sm:text-2xl md:text-4xl font-semibold font-site text-text-light">
                 1000+
               </dd>
               <dt className="text-text-dark font-site text-lg md:text-2xl pr-1">
@@ -53,7 +55,7 @@ function AboutSection() {
               </dt>
             </div>
             <div className="text-center flex flex-col justify-center items-center">
-              <dd className="text-xl md:text-4xl font-semibold font-site text-text-light">
+              <dd className="text-xl sm:text-2xl md:text-4xl font-semibold font-site text-text-light">
                 30+
               </dd>
               <dt className="text-text-dark font-site text-lg md:text-2xl pr-1">
@@ -62,8 +64,23 @@ function AboutSection() {
             </div>
           </dl>
         </article>
-        <article className="bento-center bento-card transition-transform duration-300 hover:scale-95 p-4 lg:p-6"></article>
-        <article className="bento-bottom bento-card transition-transform duration-300 hover:scale-95 p-4 lg:p-6"></article>
+        <article className="bento-center bento-card relative overflow-hidden">
+          <img
+            src={albert}
+            alt="Albert Einstein"
+            className="absolute inset-0 w-full h-full object-cover opacity-80"
+            aria-hidden="true"
+          />
+        </article>
+
+        <article className="bento-bottom bento-card relative overflow-hidden">
+          <img
+            src={nietzsche}
+            alt="Friedrich Nietzsche"
+            className="absolute inset-0 w-full h-full object-cover opacity-80 object-top"
+            aria-hidden="true"
+          />
+        </article>
       </div>
     </section>
   );

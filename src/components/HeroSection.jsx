@@ -18,7 +18,7 @@ function HeroSection() {
           </a>
           <a
             href="#Explore"
-            className="p-2.5 bg-white/80 text-black/90 rounded-md font-semibold font-site shadow-sm text-lg leading-none sm:text-xl sm:p-3 transition-transform duration-300 hover:scale-95"
+            className="p-2.5 bg-secondary text-text-secondary rounded-md font-semibold font-site shadow-sm text-lg leading-none sm:text-xl sm:p-3 transition-transform duration-300 hover:scale-95"
           >
             Explore Quotes
           </a>
