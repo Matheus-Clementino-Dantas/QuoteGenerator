@@ -79,9 +79,9 @@
 }
 
 .light {
-    --color-bg-dark: oklch(93% 0.008 240);
-    --color-bg: oklch(95% 0.01 240);
-    --color-bg-light: oklch(97% 0.006 240);
+    --color-bg-dark: oklch(90% 0.008 240);
+    --color-bg: oklch(93% 0.01 240);
+    --color-bg-light: oklch(98% 0.006 240);
     --color-secondary: oklch(18% 0 0);
 
     --color-text-light: oklch(8% 0 0);
