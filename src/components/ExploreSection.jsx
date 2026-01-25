@@ -25,7 +25,7 @@ function ExploreSection() {
           Favorites
         </button>
       </div>
-      <QuoteGrid />
+      <QuoteGrid viewMode={viewMode} />
     </section>
   );
 }

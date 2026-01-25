@@ -7,7 +7,10 @@ function App() {
     <main className="bg-bg-dark min-h-screen flex items-center justify-center flex-col overflow-x-hidden">
       <HeroSection />
       <AboutSection />
-      <section className="h-screen flex justify-center items-center">
+      <section
+        className="h-screen flex justify-center items-center"
+        id="RandomQuote"
+      >
         <RandomQuote />
       </section>
       <ExploreSection />

@@ -68,7 +68,7 @@ function AboutSection() {
           <img
             src={albert}
             alt="Albert Einstein"
-            className="absolute inset-0 w-full h-full object-cover opacity-80"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
             aria-hidden="true"
           />
         </article>
@@ -77,7 +77,7 @@ function AboutSection() {
           <img
             src={nietzsche}
             alt="Friedrich Nietzsche"
-            className="absolute inset-0 w-full h-full object-cover opacity-80 object-top"
+            className="absolute inset-0 w-full h-full object-cover opacity-90 object-top"
             aria-hidden="true"
           />
         </article>
