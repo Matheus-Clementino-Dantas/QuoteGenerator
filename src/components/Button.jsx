@@ -2,7 +2,7 @@ function Button({ disabled, className, aria, children, onClick }) {
   return (
     <button
       disabled={disabled}
-      className={`text-text-light mr-2 bg-bg-light p-2 rounded-lg shadow-sm ${className}`}
+      className={`text-text-light mr-2 bg-bg-light p-2 rounded-lg shadow-sm ${className} cursor-pointer`}
       aria-label={aria}
       onClick={onClick}
     >

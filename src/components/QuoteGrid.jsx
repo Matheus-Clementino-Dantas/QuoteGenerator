@@ -17,7 +17,6 @@ function QuoteGrid({ viewMode }) {
         `https://dummyjson.com/quotes?limit=12&skip=${randomSkip}`,
       );
       const data = await response.json();
-      console.log(data);
       setCards((prevCards) => [...prevCards, ...data.quotes]);
     } catch (error) {
       console.error("Erro na API:", error);

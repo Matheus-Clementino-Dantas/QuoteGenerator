@@ -24,9 +24,9 @@ function AboutSection() {
             aria-hidden="true"
           />
           <div className="space-y-2 z-10">
-            <h3 className="text-text-light font-site font-semibold text-xl md:text-3xl">
+            <h2 className="text-text-light font-site font-semibold text-xl md:text-3xl">
               Wisdom across ages
-            </h3>
+            </h2>
             <p className="text-text-dark font-site text-base md:text-lg lg:text-2xl leading-relaxed">
               Explore quotes from all eras and places — from Ancient Greek
               philosophers like Plato to today’s most influential figures.
