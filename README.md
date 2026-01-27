@@ -6,7 +6,7 @@ A modern, responsive quote generator featuring a Masonry layout exploration mode
 
 ## 🚀 Features
 
-- **Daily Inspiration:** Generate a unique quote to focus on.
+- **Get a random quote:** Generate a unique quote to focus on.
 - **Explore Mode:** Infinite scrolling feed with hundreds of quotes.
 - **Masonry Layout:** CSS Columns implementation for a Pinterest-like experience.
 - **Interact:** Copy to clipboard, share on X (Twitter), and save to Favorites.
