@@ -45,6 +45,7 @@ function RandomQuote() {
       className="min-w-60 w-[50dvw] max-w-2xl"
       quote={quote}
       isloading={isloading}
+      typeAnimation={true}
     >
       <Button
         disabled={isloading}
