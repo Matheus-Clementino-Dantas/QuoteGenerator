@@ -2,6 +2,7 @@ import { UserStar, Flame } from "lucide-react";
 import aristotle from "../assets/Aristotle.png";
 import albert from "../assets/albert_Einstein.jpg";
 import nietzsche from "../assets/Nietzsche.webp";
+import Counter from "./Counter";
 
 function AboutSection() {
   return (
@@ -48,7 +49,7 @@ function AboutSection() {
           <dl className="flex justify-around w-full items-start sm:items-center h-1/2">
             <div className="flex flex-col justify-center items-center">
               <dd className="text-xl sm:text-2xl md:text-4xl font-semibold font-site text-text-light">
-                1000+
+                <Counter end={1000} threshold={0.5} />
               </dd>
               <dt className="text-text-dark font-site text-lg md:text-2xl pr-1">
                 Quotes
@@ -56,7 +57,7 @@ function AboutSection() {
             </div>
             <div className="text-center flex flex-col justify-center items-center">
               <dd className="text-xl sm:text-2xl md:text-4xl font-semibold font-site text-text-light">
-                30+
+                <Counter end={30} threshold={0.5} />
               </dd>
               <dt className="text-text-dark font-site text-lg md:text-2xl pr-1">
                 Authors
