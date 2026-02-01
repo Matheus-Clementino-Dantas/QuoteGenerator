@@ -14,7 +14,7 @@ function HeroSection() {
           <TypeAnimation
             sequence={[textToType]}
             wrapper="span"
-            speed={56}
+            speed={60}
             cursor={false}
             repeat={0}
             className="col-start-1 row-start-1 whitespace-pre-line text-center"
