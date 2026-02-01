@@ -1,6 +1,6 @@
 import { UserStar, Flame } from "lucide-react";
 import aristotle from "../assets/Aristotle.png";
-import albert from "../assets/albert_Einstein.jpg";
+import albert from "../assets/Albert_Einstein.jpg";
 import nietzsche from "../assets/Nietzsche.webp";
 import Counter from "./Counter";
 
