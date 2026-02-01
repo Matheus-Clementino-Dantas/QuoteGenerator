@@ -42,7 +42,7 @@ function RandomQuote() {
 
   return (
     <QuoteCard
-      className="min-w-60 w-[50dvw] max-w-2xl"
+      className="min-w-75 w-[50dvw] max-w-2xl space-y-1.5"
       quote={quote}
       isloading={isloading}
       typeAnimation={true}
